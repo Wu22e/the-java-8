@@ -1,11 +1,11 @@
 package me.wu2ee.java8to11;
 
-import java.util.function.Supplier;
+import java.util.function.Predicate;
 
 public class Foo {
 
     public static void main(String[] args) {
-        Supplier<Integer> get10 = () -> 10;
-        System.out.println(get10.get());
+        Predicate<String> startsWithHyungwoo = (s) -> s.startsWith("hyungwoo");
+        Predicate<Integer> isEven = (i) -> i % 2 == 0;
     }
 }
