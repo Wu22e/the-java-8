@@ -1,21 +1,32 @@
 package me.wu2ee.java8to11;
 
-import java.util.function.BinaryOperator;
-import java.util.function.Supplier;
-import java.util.function.UnaryOperator;
+import java.util.function.Consumer;
+import java.util.function.IntConsumer;
 
 public class Foo {
 
     public static void main(String[] args) {
-        Supplier<Integer> get10Type1 = () -> 10;
-        Supplier<Integer> get10Type2 = () -> {
-            return 10;
-        };
-        BinaryOperator<Integer> sumType1 = (a, b) -> a + b;
-        BinaryOperator<Integer> sumType2 = (Integer a, Integer b) -> a + b;
+        Foo foo = new Foo();
+        foo.run();
+    }
 
-        UnaryOperator<Integer> plus10 = (i) -> i + 10;
-        UnaryOperator<Integer> multiply2 = (i) -> i * 2;
-        System.out.println(plus10.andThen(multiply2).apply(2));
+    private void run() {
+        final int baseNumber = 10;
+
+        // 로컬 클래스
+        class LocalClass {
+            void printBaseNumber() {
+                int baseNumber = 11; // run 메서드의 baseNumber 가 가려진다.
+                System.out.println(baseNumber);
+            }
+        }
+
+        // 익명 클래스
+        Consumer<Integer> integerConsumer = new Consumer<Integer>() {
+            @Override
+            public void accept(Integer baseNumber) {
+                System.out.println(baseNumber); // run 메서드의 baseNumber 가 가려진다.
+            }
+        };
     }
 }
