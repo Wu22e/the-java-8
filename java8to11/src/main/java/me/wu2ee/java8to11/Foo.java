@@ -1,23 +1,12 @@
 package me.wu2ee.java8to11;
 
-import java.util.function.IntConsumer;
+import java.util.function.Function;
+import java.util.function.UnaryOperator;
 
 public class Foo {
 
     public static void main(String[] args) {
-        Foo foo = new Foo();
-        foo.run();
-    }
-
-    private void run() {
-        int baseNumber = 10;
-
-        // 람다
-        IntConsumer printInt = (i) -> {
-            System.out.println(i + baseNumber);
-        };
-        baseNumber++;
-
-        printInt.accept(10);
+        UnaryOperator<String> hi1 = (s) -> "hi " + s;
+        UnaryOperator<String> hi2 = Greeting::hi;
     }
 }
