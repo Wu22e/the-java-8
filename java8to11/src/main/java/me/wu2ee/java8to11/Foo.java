@@ -1,13 +1,18 @@
 package me.wu2ee.java8to11;
 
-import java.util.function.Supplier;
-import java.util.function.UnaryOperator;
+public interface Foo {
 
-public class Foo {
+    void printName();
 
-    public static void main(String[] args) {
-        Greeting greeting = new Greeting();
-        UnaryOperator<String> hello = greeting::hello;
-        System.out.println(hello.apply("wu2ee"));
+    /**
+     * @implSpec
+     * 이 구현체는 getName()으로 가져온 문자열을 대문자로 출력한다.
+     */
+    default void printNameUpperCase() {
+        System.out.println(getName().toUpperCase());
     }
+
+    String toString();
+
+    String getName();
 }
