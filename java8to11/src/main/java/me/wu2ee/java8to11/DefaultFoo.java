@@ -1,6 +1,6 @@
 package me.wu2ee.java8to11;
 
-public class DefaultFoo implements Foo, Bar{
+public class DefaultFoo implements Foo {
 
     String name;
 
