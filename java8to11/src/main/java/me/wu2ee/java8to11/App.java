@@ -1,6 +1,7 @@
 package me.wu2ee.java8to11;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class App {
@@ -12,7 +13,9 @@ public class App {
         name.add("honux");
         name.add("foo");
 
-        name.removeIf(s -> s.startsWith("w"));
+        Comparator<String> compareToIgnoreCase = String::compareToIgnoreCase;
+        name.sort(compareToIgnoreCase.reversed());
+
         name.forEach(System.out::println);
     }
 }
