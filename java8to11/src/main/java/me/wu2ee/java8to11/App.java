@@ -14,7 +14,7 @@ public class App {
         name.add("foo");
 
         Comparator<String> compareToIgnoreCase = String::compareToIgnoreCase;
-        name.sort(compareToIgnoreCase.reversed());
+        name.sort(compareToIgnoreCase.reversed().thenComparing(추가 비교 조건));
 
         name.forEach(System.out::println);
     }
