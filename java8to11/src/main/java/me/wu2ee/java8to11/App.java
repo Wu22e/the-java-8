@@ -2,7 +2,6 @@ package me.wu2ee.java8to11;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Spliterator;
 
 public class App {
 
@@ -13,11 +12,10 @@ public class App {
         name.add("honux");
         name.add("foo");
 
-        Spliterator<String> spliterator = name.spliterator();
-        Spliterator<String> spliterator1 = spliterator.trySplit();
-        System.out.println("spliterator : ");
-        while (spliterator.tryAdvance(System.out::println));
-        System.out.println("spliterator1 : ");
-        while (spliterator1.tryAdvance(System.out::println));
+        long k = name.stream().map(String::toUpperCase)
+                .filter(s -> s.startsWith("W"))
+                .count();
+
+        System.out.println(k);
     }
 }
