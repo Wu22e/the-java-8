@@ -12,10 +12,7 @@ public class App {
         name.add("honux");
         name.add("foo");
 
-        long k = name.stream().map(String::toUpperCase)
-                .filter(s -> s.startsWith("W"))
-                .count();
-
-        System.out.println(k);
+        name.removeIf(s -> s.startsWith("w"));
+        name.forEach(System.out::println);
     }
 }
