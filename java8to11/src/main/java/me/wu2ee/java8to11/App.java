@@ -1,21 +1,20 @@
 package me.wu2ee.java8to11;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class App {
 
     public static void main(String[] args) {
-        List<String> name = new ArrayList<>();
-        name.add("wu2ee");
-        name.add("pobi");
-        name.add("honux");
-        name.add("foo");
+        List<String> names = new ArrayList<>();
+        names.add("wu2ee");
+        names.add("pobi");
+        names.add("honux");
+        names.add("foo");
 
-        Comparator<String> compareToIgnoreCase = String::compareToIgnoreCase;
-        name.sort(compareToIgnoreCase.reversed().thenComparing(추가 비교 조건));
+        Stream<String> stringStream = names.stream().map(String::toUpperCase);
 
-        name.forEach(System.out::println);
+        names.forEach(System.out::println);
     }
 }
