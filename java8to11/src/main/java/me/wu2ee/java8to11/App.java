@@ -2,7 +2,6 @@ package me.wu2ee.java8to11;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Stream;
 
 public class App {
 
@@ -13,7 +12,12 @@ public class App {
         names.add("honux");
         names.add("foo");
 
-        Stream<String> stringStream = names.stream().map(String::toUpperCase);
+        names.stream().map(s -> {
+            System.out.println(s);
+            return s.toUpperCase();
+        });
+
+        System.out.println("=============");
 
         names.forEach(System.out::println);
     }
