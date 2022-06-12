@@ -6,7 +6,7 @@ public class App {
 
     public static void main(String[] args) {
         String[] names = {"wu2ee", "pobi", "honux"};
-        Arrays.sort(names, (o1, o2) -> o1.compareToIgnoreCase(o2));
+        Arrays.sort(names, String::compareToIgnoreCase);
         System.out.println(Arrays.toString(names));
     }
 }
