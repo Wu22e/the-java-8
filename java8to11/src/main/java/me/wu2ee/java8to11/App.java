@@ -13,7 +13,7 @@ public class App {
         names.add("honux");
         names.add("foo");
 
-        List<String> collect = names.parallelStream().map(s -> {
+        List<String> collect = names.stream().map(s -> {
             System.out.println(s + " " + Thread.currentThread().getName());
             return s.toUpperCase();
         }).collect(Collectors.toList());
