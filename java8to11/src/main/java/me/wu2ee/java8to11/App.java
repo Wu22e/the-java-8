@@ -1,23 +1,16 @@
 package me.wu2ee.java8to11;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
+import java.util.function.Function;
+import java.util.function.Supplier;
 
 public class App {
 
     public static void main(String[] args) {
-        List<String> names = new ArrayList<>();
-        names.add("wu2ee");
-        names.add("pobi");
-        names.add("honux");
-        names.add("foo");
+        Function<String, Greeting> wu2eeGreeting
+                = Greeting::new;
+        Greeting wu2ee = wu2eeGreeting.apply("wu2ee");
+        System.out.println(wu2ee.getName());
 
-        List<String> collect = names.stream().map(s -> {
-            System.out.println(s + " " + Thread.currentThread().getName());
-            return s.toUpperCase();
-        }).collect(Collectors.toList());
-        System.out.println("================");
-        collect.forEach(System.out::println);
+        Supplier<Greeting> newGreeting = Greeting::new;
     }
 }
