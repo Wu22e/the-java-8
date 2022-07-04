@@ -15,7 +15,9 @@ public class App {
                 .filter(oc -> oc.getTitle().startsWith("jpa"))
                 .findFirst();
 
-        OnlineClass onlineClass = optional.get();
-        System.out.println(onlineClass.getTitle());
+        if (optional.isPresent()) {
+            OnlineClass onlineClass = optional.get();
+            System.out.println(onlineClass.getTitle());
+        }
     }
 }
