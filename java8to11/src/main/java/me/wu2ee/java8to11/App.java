@@ -11,17 +11,11 @@ public class App {
         springClasses.add(new OnlineClass(1, "spring boot", true));
         springClasses.add(new OnlineClass(5, "rest api development", false));
 
-        Optional<OnlineClass> spring = springClasses.stream()
+        Optional<OnlineClass> optional = springClasses.stream()
                 .filter(oc -> oc.getTitle().startsWith("spring"))
                 .findFirst();
 
-        Optional<OnlineClass> jpa = springClasses.stream()
-                .filter(oc -> oc.getTitle().startsWith("jpa"))
-                .findFirst();
-
-        System.out.println(spring.isPresent());
-        System.out.println(spring.isEmpty());
-        System.out.println(jpa.isPresent());
-        System.out.println(jpa.isEmpty());
+        OnlineClass onlineClass = optional.get();
+        System.out.println(onlineClass.getTitle());
     }
 }
