@@ -12,12 +12,9 @@ public class App {
         springClasses.add(new OnlineClass(5, "rest api development", false));
 
         Optional<OnlineClass> optional = springClasses.stream()
-                .filter(oc -> oc.getTitle().startsWith("jpa"))
+                .filter(oc -> oc.getTitle().startsWith("spring"))
                 .findFirst();
 
-        if (optional.isPresent()) {
-            OnlineClass onlineClass = optional.get();
-            System.out.println(onlineClass.getTitle());
-        }
+        optional.ifPresent(oc -> System.out.println(oc.getTitle()));
     }
 }
