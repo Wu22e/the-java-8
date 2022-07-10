@@ -15,7 +15,9 @@ public class App {
                 .filter(oc -> oc.getTitle().startsWith("spring"))
                 .findFirst();
 
-        OnlineClass onlineClass = optional.orElseGet(App::createNewClass);
+        OnlineClass onlineClass = optional.orElseThrow(() -> {
+            throw new IllegalArgumentException();
+        });
         System.out.println(onlineClass.getTitle());
     }
 
