@@ -15,10 +15,13 @@ public class App {
                 .filter(oc -> oc.getTitle().startsWith("spring"))
                 .findFirst();
 
-        OnlineClass onlineClass = optional.orElseThrow(() -> {
-            throw new IllegalArgumentException();
-        });
-        System.out.println(onlineClass.getTitle());
+        Optional<OnlineClass> onlineClass1 =
+                optional.filter(oc -> !oc.isClosed());
+        Optional<OnlineClass> onlineClass2 =
+                optional.filter(oc -> oc.isClosed());
+
+        System.out.println(onlineClass1.isEmpty());
+        System.out.println(onlineClass2.isEmpty());
     }
 
     private static OnlineClass createNewClass() {
