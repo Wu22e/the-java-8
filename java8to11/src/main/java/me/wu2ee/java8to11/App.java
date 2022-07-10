@@ -15,8 +15,7 @@ public class App {
                 .filter(oc -> oc.getTitle().startsWith("spring"))
                 .findFirst();
 
-        Optional<Integer> integer = optional.map(OnlineClass::getId);
-        System.out.println(integer.isPresent());
+        Optional<Progress> progress = optional.flatMap(OnlineClass::getProgress);
     }
 
     private static OnlineClass createNewClass() {
