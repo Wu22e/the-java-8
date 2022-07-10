@@ -15,13 +15,8 @@ public class App {
                 .filter(oc -> oc.getTitle().startsWith("spring"))
                 .findFirst();
 
-        Optional<OnlineClass> onlineClass1 =
-                optional.filter(oc -> !oc.isClosed());
-        Optional<OnlineClass> onlineClass2 =
-                optional.filter(oc -> oc.isClosed());
-
-        System.out.println(onlineClass1.isEmpty());
-        System.out.println(onlineClass2.isEmpty());
+        Optional<Integer> integer = optional.map(OnlineClass::getId);
+        System.out.println(integer.isPresent());
     }
 
     private static OnlineClass createNewClass() {
